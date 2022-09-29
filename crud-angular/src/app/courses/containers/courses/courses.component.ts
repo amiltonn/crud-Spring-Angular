@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router, Routes } from '@angular/router';
-import { ErroDialogComponent } from './../../shared/components/erro-dialog/erro-dialog.component';
-import { CoursesService } from './../services/courses.service';
-import { Courses } from './../model/courses';
+import { ErroDialogComponent } from '../../../shared/components/erro-dialog/erro-dialog.component';
+import { CoursesService } from '../../services/courses.service';
+import { Courses } from '../../model/courses';
 import { Component, OnInit } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,7 +15,7 @@ export class CoursesComponent implements OnInit {
 
   courses$: Observable<Courses[]>;
 
-  displayedColumns = ["name", "category","professor","duracao", "actions"]
+  
 
   constructor(
     private coursesService : CoursesService,

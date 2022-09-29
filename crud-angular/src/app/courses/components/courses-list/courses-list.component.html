@@ -1,0 +1,54 @@
+<mat-table [dataSource]="courses">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Cursos </mat-header-cell>
+      <mat-cell *matCellDef="let courses"> {{ courses.name }} </mat-cell>
+    </ng-container>
+
+    <!--  category Column -->
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+      <mat-cell *matCellDef="let courses"> {{courses.category}} 
+        <mat-icon aria-hidden="false" aria-label="Categoria cursos">
+          {{courses.category | category}}</mat-icon>
+      </mat-cell> 
+    </ng-container>
+
+     <!-- professor Column -->
+     <ng-container matColumnDef="professor">
+      <mat-header-cell *matHeaderCellDef> Professor </mat-header-cell>
+      <mat-cell *matCellDef="let courses"> {{ courses.professor }} </mat-cell>
+    </ng-container>
+
+     <!--  duracao Column -->
+    <ng-container matColumnDef="duracao">
+      <mat-header-cell *matHeaderCellDef> Duração do Curso </mat-header-cell>
+      <mat-cell *matCellDef="let courses"> {{ courses.duracao }} horas </mat-cell>
+    </ng-container>
+    
+     <!--  Action Column -->
+     <ng-container matColumnDef="actions">
+
+      <mat-header-cell *matHeaderCellDef class="action-colomn-header">
+        <button mat-mini-fab color="accent" aria-label="Adicionar um curso">
+          <mat-icon (click)="onAdd()" >add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let courses" class="action-colomn">
+        <button mat-icon-button color="primary" aria-label="Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" aria-label="Remover">
+          <mat-icon>delete</mat-icon>
+        </button>
+
+      </mat-cell>
+      
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
